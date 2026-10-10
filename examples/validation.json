@@ -1,0 +1,31 @@
+{
+  "engine": "Microsoft PowerPoint",
+  "slide_count": 2,
+  "native_shape_counts": [
+    35,
+    27
+  ],
+  "visible_latin_fonts": [
+    "Arial"
+  ],
+  "structural_check": "passed",
+  "render_check": "passed",
+  "rendered_slides": 2,
+  "checked_text_shapes": 28,
+  "text_overflow_count": 0,
+  "preview_visual_review": "passed",
+  "pptx_sha256": "b55f8ae1e060104b8ecbd811c584eb9f8c74e107b97ca7fe12283081700ea24c",
+  "independent_prose_test": {
+    "slide_count": 1,
+    "native_shape_count": 27,
+    "structural_check": "passed",
+    "render_check": "passed",
+    "text_overflow_count": 0,
+    "preview_visual_review": "passed"
+  },
+  "validator_regression_checks": {
+    "incorrect_latin_and_east_asian_fonts": "rejected",
+    "reversed_or_missing_edges": "rejected",
+    "unnamed_edges": "rejected"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Editable PPT Flowcharts"
+  short_description: "Turn method descriptions into editable PPT flowcharts"
+  default_prompt: "Use $editable-ppt-flowcharts to turn the following method into a concise editable PowerPoint flowchart."

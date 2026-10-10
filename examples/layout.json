@@ -1,0 +1,688 @@
+{
+  "font": "Arial",
+  "east_asian_font": "Microsoft YaHei",
+  "slides": [
+    {
+      "title": "Data Validation & Feature Extraction",
+      "subtitle": "From validated tables to a reproducible feature matrix",
+      "notes": "Illustrative method supplied in examples/method.md. Both feature routes receive the same validated input. Exceptions are QC-only and do not enter the feature matrix.",
+      "footer": "Exceptions contribute only to QC; preserve sample IDs and declared units.",
+      "nodes": [
+        {
+          "id": "input",
+          "rect": [
+            0.5,
+            1.48,
+            2.05,
+            1.2
+          ],
+          "title": "Input",
+          "body": [
+            "Data tables",
+            "Sample manifest"
+          ],
+          "accent": "gray"
+        },
+        {
+          "id": "validate",
+          "rect": [
+            2.96,
+            1.48,
+            2.3,
+            1.2
+          ],
+          "title": "Validate",
+          "body": [
+            "Files + sample IDs",
+            "Units + QC reports"
+          ],
+          "accent": "blue",
+          "body_font_size": 15
+        },
+        {
+          "id": "missing",
+          "rect": [
+            5.67,
+            1.48,
+            2.14,
+            1.2
+          ],
+          "title": "Missing fields",
+          "body": [
+            "Evidence-based",
+            "handling"
+          ],
+          "accent": "green",
+          "font_size": 17,
+          "body_font_size": 15
+        },
+        {
+          "id": "units",
+          "rect": [
+            8.22,
+            1.48,
+            2.39,
+            1.2
+          ],
+          "title": "Harmonize units",
+          "body": [
+            "Preserve declared",
+            "measurement units"
+          ],
+          "accent": "orange",
+          "font_size": 17,
+          "body_font_size": 15
+        },
+        {
+          "id": "ready",
+          "rect": [
+            11.02,
+            1.48,
+            1.81,
+            1.2
+          ],
+          "title": "Ready data",
+          "body": [
+            "Ready for",
+            "extraction"
+          ],
+          "accent": "purple",
+          "font_size": 17
+        },
+        {
+          "id": "caption",
+          "rect": [
+            0.5,
+            2.96,
+            11.5,
+            0.36
+          ],
+          "title": "Feature extraction and QC",
+          "body": [],
+          "accent": "blue",
+          "kind": "text",
+          "font_size": 19
+        },
+        {
+          "id": "numeric",
+          "rect": [
+            0.5,
+            3.72,
+            4.04,
+            1.39
+          ],
+          "title": "Numeric features",
+          "body": [
+            "Extract numeric variables",
+            "Keep sample alignment"
+          ],
+          "accent": "blue",
+          "font_size": 18,
+          "body_font_size": 16
+        },
+        {
+          "id": "category",
+          "rect": [
+            4.87,
+            3.72,
+            4.04,
+            1.39
+          ],
+          "title": "Categorical features",
+          "body": [
+            "Encode declared categories",
+            "Keep sample alignment"
+          ],
+          "accent": "green",
+          "font_size": 18,
+          "body_font_size": 16
+        },
+        {
+          "id": "exceptions",
+          "rect": [
+            10.2,
+            3.72,
+            2.63,
+            1.39
+          ],
+          "title": "Exceptions",
+          "body": [
+            "Record reasons",
+            "QC only"
+          ],
+          "accent": "gray",
+          "font_size": 18,
+          "body_font_size": 16
+        },
+        {
+          "id": "matrix",
+          "rect": [
+            0.5,
+            5.81,
+            8.41,
+            0.87
+          ],
+          "title": "Feature matrix",
+          "body": [
+            "Numeric + categorical features"
+          ],
+          "accent": "purple",
+          "font_size": 20,
+          "body_font_size": 16
+        },
+        {
+          "id": "qc",
+          "rect": [
+            10.2,
+            5.81,
+            2.63,
+            0.87
+          ],
+          "title": "QC register",
+          "body": [
+            "Excluded records"
+          ],
+          "accent": "gray",
+          "font_size": 18,
+          "body_font_size": 15
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "validate",
+          "points": [
+            [
+              2.62,
+              2.08
+            ],
+            [
+              2.89,
+              2.08
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "validate",
+          "to": "missing",
+          "points": [
+            [
+              5.33,
+              2.08
+            ],
+            [
+              5.6,
+              2.08
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "missing",
+          "to": "units",
+          "points": [
+            [
+              7.88,
+              2.08
+            ],
+            [
+              8.15,
+              2.08
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "units",
+          "to": "ready",
+          "points": [
+            [
+              10.68,
+              2.08
+            ],
+            [
+              10.95,
+              2.08
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "ready",
+          "to": "numeric",
+          "points": [
+            [
+              11.925,
+              2.68
+            ],
+            [
+              11.925,
+              3.42
+            ],
+            [
+              2.52,
+              3.42
+            ],
+            [
+              2.52,
+              3.72
+            ]
+          ],
+          "accent": "blue"
+        },
+        {
+          "from": "ready",
+          "to": "category",
+          "points": [
+            [
+              11.925,
+              2.68
+            ],
+            [
+              11.925,
+              3.42
+            ],
+            [
+              6.89,
+              3.42
+            ],
+            [
+              6.89,
+              3.72
+            ]
+          ],
+          "accent": "blue"
+        },
+        {
+          "from": "ready",
+          "to": "exceptions",
+          "points": [
+            [
+              11.925,
+              2.68
+            ],
+            [
+              11.925,
+              3.42
+            ],
+            [
+              11.515,
+              3.42
+            ],
+            [
+              11.515,
+              3.72
+            ]
+          ],
+          "accent": "gray"
+        },
+        {
+          "from": "numeric",
+          "to": "matrix",
+          "points": [
+            [
+              2.52,
+              5.11
+            ],
+            [
+              2.52,
+              5.46
+            ],
+            [
+              4.705,
+              5.46
+            ],
+            [
+              4.705,
+              5.81
+            ]
+          ]
+        },
+        {
+          "from": "category",
+          "to": "matrix",
+          "points": [
+            [
+              6.89,
+              5.11
+            ],
+            [
+              6.89,
+              5.46
+            ],
+            [
+              4.705,
+              5.46
+            ],
+            [
+              4.705,
+              5.81
+            ]
+          ]
+        },
+        {
+          "from": "exceptions",
+          "to": "qc",
+          "points": [
+            [
+              11.515,
+              5.11
+            ],
+            [
+              11.515,
+              5.81
+            ]
+          ],
+          "accent": "gray"
+        }
+      ]
+    },
+    {
+      "title": "Independent Analysis Routes",
+      "subtitle": "Sequential exclusion followed by two independent analyses",
+      "notes": "Illustrative method supplied in examples/method.md. A complete record is removed if any declared exclusion condition is met. Identical retained records enter Method A and Method B independently. Their results and QC registers remain separate; the diagram does not imply pooling result counts.",
+      "nodes": [
+        {
+          "id": "input",
+          "rect": [
+            0.5,
+            1.48,
+            2.25,
+            1.08
+          ],
+          "title": "Input",
+          "body": [
+            "Validated data"
+          ],
+          "accent": "gray",
+          "font_size": 18
+        },
+        {
+          "id": "duplicates",
+          "rect": [
+            3.32,
+            1.48,
+            2.65,
+            1.08
+          ],
+          "title": "Exclude duplicates",
+          "body": [
+            "Keep exclusion reason"
+          ],
+          "accent": "blue",
+          "font_size": 17,
+          "body_font_size": 15
+        },
+        {
+          "id": "invalid",
+          "rect": [
+            6.55,
+            1.48,
+            2.65,
+            1.08
+          ],
+          "title": "Exclude invalid records",
+          "body": [
+            "Keep exclusion reason"
+          ],
+          "accent": "green",
+          "font_size": 16.5,
+          "body_font_size": 15
+        },
+        {
+          "id": "ineligible",
+          "rect": [
+            9.78,
+            1.48,
+            3.05,
+            1.08
+          ],
+          "title": "Exclude ineligible samples",
+          "body": [
+            "Keep exclusion reason"
+          ],
+          "accent": "orange",
+          "font_size": 17,
+          "body_font_size": 15
+        },
+        {
+          "id": "rule",
+          "rect": [
+            0.5,
+            2.9,
+            12.33,
+            0.4
+          ],
+          "title": "Any exclusion criterion met → remove the complete record and retain its reason",
+          "body": [],
+          "accent": "orange",
+          "kind": "text",
+          "font_size": 17,
+          "align": "center"
+        },
+        {
+          "id": "retained",
+          "rect": [
+            4.6,
+            3.68,
+            4.13,
+            0.7
+          ],
+          "title": "Retained records",
+          "body": [
+            "Same input for both routes"
+          ],
+          "accent": "blue",
+          "font_size": 18,
+          "body_font_size": 15
+        },
+        {
+          "id": "a",
+          "rect": [
+            0.5,
+            4.88,
+            5.7,
+            1.08
+          ],
+          "title": "Method A",
+          "body": [
+            "Independent analysis"
+          ],
+          "accent": "blue",
+          "font_size": 20,
+          "body_font_size": 17
+        },
+        {
+          "id": "b",
+          "rect": [
+            7.13,
+            4.88,
+            5.7,
+            1.08
+          ],
+          "title": "Method B",
+          "body": [
+            "Independent analysis"
+          ],
+          "accent": "purple",
+          "font_size": 20,
+          "body_font_size": 17
+        },
+        {
+          "id": "outa",
+          "rect": [
+            0.5,
+            6.4,
+            5.7,
+            0.73
+          ],
+          "title": "Results A + QC A",
+          "body": [
+            "Unknown / conflicting results retained"
+          ],
+          "accent": "green",
+          "font_size": 18,
+          "body_font_size": 14.5
+        },
+        {
+          "id": "outb",
+          "rect": [
+            7.13,
+            6.4,
+            5.7,
+            0.73
+          ],
+          "title": "Results B + QC B",
+          "body": [
+            "Unknown / conflicting results retained"
+          ],
+          "accent": "green",
+          "font_size": 18,
+          "body_font_size": 14.5
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "duplicates",
+          "points": [
+            [
+              2.83,
+              2.02
+            ],
+            [
+              3.24,
+              2.02
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "duplicates",
+          "to": "invalid",
+          "points": [
+            [
+              6.05,
+              2.02
+            ],
+            [
+              6.47,
+              2.02
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "invalid",
+          "to": "ineligible",
+          "points": [
+            [
+              9.28,
+              2.02
+            ],
+            [
+              9.7,
+              2.02
+            ]
+          ],
+          "style": "block"
+        },
+        {
+          "from": "ineligible",
+          "to": "retained",
+          "points": [
+            [
+              11.305,
+              2.56
+            ],
+            [
+              11.305,
+              3.47
+            ],
+            [
+              6.665,
+              3.47
+            ],
+            [
+              6.665,
+              3.68
+            ]
+          ]
+        },
+        {
+          "from": "retained",
+          "to": "a",
+          "points": [
+            [
+              6.665,
+              4.38
+            ],
+            [
+              6.665,
+              4.63
+            ],
+            [
+              3.35,
+              4.63
+            ],
+            [
+              3.35,
+              4.88
+            ]
+          ]
+        },
+        {
+          "from": "retained",
+          "to": "b",
+          "points": [
+            [
+              6.665,
+              4.38
+            ],
+            [
+              6.665,
+              4.63
+            ],
+            [
+              9.98,
+              4.63
+            ],
+            [
+              9.98,
+              4.88
+            ]
+          ]
+        },
+        {
+          "from": "a",
+          "to": "outa",
+          "points": [
+            [
+              3.35,
+              5.96
+            ],
+            [
+              3.35,
+              6.4
+            ]
+          ]
+        },
+        {
+          "from": "b",
+          "to": "outb",
+          "points": [
+            [
+              9.98,
+              5.96
+            ],
+            [
+              9.98,
+              6.4
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
